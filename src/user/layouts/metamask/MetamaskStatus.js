@@ -1,11 +1,18 @@
 import React, { Component, Children } from 'react';
 import { drizzleConnect } from 'drizzle-react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+`;
 
 class Metamask extends Component {
   render() {
     if (this.props.web3.status === 'failed') {
       return (
-        <main className="container loading-screen">
+        <Container className="container loading-screen">
           <div className="pure-g">
             <div className="pure-u-1-1">
               <h1>⚠️</h1>
@@ -14,7 +21,7 @@ class Metamask extends Component {
               </p>
             </div>
           </div>
-        </main>
+        </Container>
       );
     }
 
@@ -23,7 +30,7 @@ class Metamask extends Component {
       Object.keys(this.props.accounts).length === 0
     ) {
       return (
-        <main className="container">
+        <Container className="container">
           <div className="pure-g">
             <div className="pure-u-1-1">
               <h1>🦊</h1>
@@ -32,7 +39,7 @@ class Metamask extends Component {
               </p>
             </div>
           </div>
-        </main>
+        </Container>
       );
     }
     if (this.props.children) {
