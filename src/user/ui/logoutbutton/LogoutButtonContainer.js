@@ -1,24 +1,23 @@
-import { connect } from 'react-redux'
-import LogoutButton from './LogoutButton'
-import { logoutUser } from './LogoutButtonActions'
+import { connect } from 'react-redux';
+import LogoutButton from './LogoutButton';
+import { logoutUser } from './LogoutButtonActions';
 
 const mapStateToProps = (state, ownProps) => {
-  return {}
-}
+  return {};
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onLogoutUserClick: (event) => {
+    onLogoutUserClick: event => {
       event.preventDefault();
 
-      dispatch(logoutUser())
-    }
-  }
-}
+      dispatch(logoutUser());
+    },
+  };
+};
 
-const LogoutButtonContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LogoutButton)
+const LogoutButtonContainer = connect(mapStateToProps, mapDispatchToProps)(
+  LogoutButton
+);
 
-export default LogoutButtonContainer
+export default LogoutButtonContainer;
