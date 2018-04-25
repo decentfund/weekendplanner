@@ -60,7 +60,7 @@ Metamask.defaultProps = {
 };
 
 Metamask.propTypes = {
-  accounts: PropTypes.array, // eslint-disable-line
+  accounts: PropTypes.object, // eslint-disable-line
   children: PropTypes.node,
   web3: PropTypes.shape({ status: PropTypes.string }),
 };
