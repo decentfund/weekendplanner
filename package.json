@@ -79,7 +79,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "./node_modules/.bin/prettier --write --parser flow --single-quote --trailing-comma es5",
+      "./node_modules/.bin/prettier --write --parser flow --single-quote --trailing-comma all",
       "git add"
     ]
   },
