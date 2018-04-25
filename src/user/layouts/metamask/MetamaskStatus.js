@@ -51,21 +51,28 @@ class Metamask extends Component {
         </Container>
       );
     }
-    return Children.only(this.props.children);
+    if (this.props.drizzleStatus.initialized) {
+      return Children.only(this.props.children);
+    }
+    return null;
   }
 }
 Metamask.defaultProps = {
   web3: {},
   children: null,
+  drizzleStatus: {},
 };
 
 Metamask.propTypes = {
-  accounts: PropTypes.array, // eslint-disable-line
+  accounts: PropTypes.object, // eslint-disable-line
   children: PropTypes.node,
   web3: PropTypes.shape({ status: PropTypes.string }),
+  drizzleStatus: PropTypes.shape({ initialized: PropTypes.bool }),
 };
+
 const mapStateToProps = state => ({
   accounts: state.accounts,
+  drizzleStatus: state.drizzleStatus,
   web3: state.web3,
 });
 
