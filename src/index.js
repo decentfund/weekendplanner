@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { DrizzleProvider } from 'drizzle-react';
+import { LoadingContainer } from 'drizzle-react-components';
 
 // Layouts
 import App from './App';
 import HomeContainer from './layouts/home/HomeContainer';
-import { LoadingContainer } from 'drizzle-react-components';
 
 import store from './store';
 import drizzleOptions from './drizzleOptions';
@@ -25,5 +25,5 @@ ReactDOM.render(
       </Router>
     </LoadingContainer>
   </DrizzleProvider>,
-  document.getElementById('root')
+  document.getElementById('root'), // eslint-disable-line
 );
