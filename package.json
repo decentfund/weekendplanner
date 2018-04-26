@@ -1,5 +1,5 @@
 {
-  "name": "drizzle-box",
+  "name": "weekend-planner",
   "version": "0.0.1",
   "devDependencies": {
     "@storybook/react": "^3.4.2",
