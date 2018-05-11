@@ -1,0 +1,464 @@
+exports[`test renders NewEventAttendees properly for current user 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    accounts={
+        Object {
+            "default": Object {
+              "address": "0xabcde",
+            },
+          }
+    }
+    currentUserAddress="0xabcde"
+    onAddClick={[Function]}
+    onChangeAddress={[Function]}
+    onRemoveClick={[Function]} />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        Array [
+          <div>
+            <TextField
+                        disabled={true}
+                        onChange={[Function]}
+                        value="0xabcde" />
+</div>,
+        ],
+        <Button
+          onClick={[Function]}>
+          Add more
+</Button>,
+      ],
+      "className": "pure-g-1-1",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "default",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <TextField
+              disabled={true}
+              onChange={[Function]}
+              value="0xabcde" />,
+            null,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "disabled": true,
+              "onChange": [Function],
+              "value": "0xabcde",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          null,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Add more",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Add more",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          Array [
+            <div>
+              <TextField
+                            disabled={true}
+                            onChange={[Function]}
+                            value="0xabcde" />
+</div>,
+          ],
+          <Button
+            onClick={[Function]}>
+            Add more
+</Button>,
+        ],
+        "className": "pure-g-1-1",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "default",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <TextField
+                disabled={true}
+                onChange={[Function]}
+                value="0xabcde" />,
+              null,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "disabled": true,
+                "onChange": [Function],
+                "value": "0xabcde",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            null,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Add more",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Add more",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`test renders NewEventAttendees properly for several accounts 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    accounts={
+        Object {
+            "0xaaaaaa": Object {
+              "address": "0xaaaaaa",
+            },
+            "default": Object {
+              "address": "0xabcde",
+            },
+          }
+    }
+    currentUserAddress="0xabcde"
+    onAddClick={[Function]}
+    onChangeAddress={[Function]}
+    onRemoveClick={[Function]} />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        Array [
+          <div>
+            <TextField
+                        disabled={true}
+                        onChange={[Function]}
+                        value="0xabcde" />
+</div>,
+          <div>
+            <TextField
+                        disabled={false}
+                        onChange={[Function]}
+                        value="0xaaaaaa" />
+            <button
+                        onClick={[Function]}>
+                        Remove
+            </button>
+</div>,
+        ],
+        <Button
+          onClick={[Function]}>
+          Add more
+</Button>,
+      ],
+      "className": "pure-g-1-1",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "default",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <TextField
+              disabled={true}
+              onChange={[Function]}
+              value="0xabcde" />,
+            null,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "disabled": true,
+              "onChange": [Function],
+              "value": "0xabcde",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          null,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "0xaaaaaa",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <TextField
+              disabled={false}
+              onChange={[Function]}
+              value="0xaaaaaa" />,
+            <button
+              onClick={[Function]}>
+              Remove
+</button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "disabled": false,
+              "onChange": [Function],
+              "value": "0xaaaaaa",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Remove",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Remove",
+            "type": "button",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Add more",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Add more",
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          Array [
+            <div>
+              <TextField
+                            disabled={true}
+                            onChange={[Function]}
+                            value="0xabcde" />
+</div>,
+            <div>
+              <TextField
+                            disabled={false}
+                            onChange={[Function]}
+                            value="0xaaaaaa" />
+              <button
+                            onClick={[Function]}>
+                            Remove
+              </button>
+</div>,
+          ],
+          <Button
+            onClick={[Function]}>
+            Add more
+</Button>,
+        ],
+        "className": "pure-g-1-1",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "default",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <TextField
+                disabled={true}
+                onChange={[Function]}
+                value="0xabcde" />,
+              null,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "disabled": true,
+                "onChange": [Function],
+                "value": "0xabcde",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            null,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "0xaaaaaa",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <TextField
+                disabled={false}
+                onChange={[Function]}
+                value="0xaaaaaa" />,
+              <button
+                onClick={[Function]}>
+                Remove
+</button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "disabled": false,
+                "onChange": [Function],
+                "value": "0xaaaaaa",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Remove",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Remove",
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Add more",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Add more",
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

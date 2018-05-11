@@ -1,22 +1,34 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
+import pick from 'lodash/pick';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextField from '../../shared/TextField';
 import Button from '../../shared/Button';
-import { addAttendeeRequest, removeAttendeeRequest } from '../new';
+import {
+  addAttendeeRequest,
+  removeAttendeeRequest,
+  changeAttendeeAddress,
+} from '../new';
 
 export const NewEventAttendees = ({
   accounts,
   currentUserAddress,
   onRemoveClick,
   onAddClick,
+  onChangeAddress,
 }) => (
   <div className="pure-g-1-1">
     {Object.keys(accounts).map(account => (
-      <div>
-        <TextField disabled={account === currentUserAddress} value={account} />
-        {account !== currentUserAddress ? (
+      <div key={account}>
+        <TextField
+          disabled={accounts[account].address === currentUserAddress}
+          value={accounts[account].address}
+          onChange={e =>
+            onChangeAddress({ id: account, value: e.target.value })
+          }
+        />
+        {accounts[account].address !== currentUserAddress ? (
           <button onClick={() => onRemoveClick(account)}>Remove</button>
         ) : null}
       </div>
@@ -30,19 +42,25 @@ NewEventAttendees.propTypes = {
   currentUserAddress: PropTypes.string,
   onRemoveClick: PropTypes.func,
   onAddClick: PropTypes.func,
+  onChangeAddress: PropTypes.func,
 };
 
 NewEventAttendees.defaultProps = {
   currentUserAddress: null,
   onRemoveClick: () => {},
   onAddClick: () => {},
+  onChangeAddress: () => {},
 };
 
-const mapStateToProps = state => ({
-  accounts: state.new.accounts,
+export const mapStateToProps = state => ({
+  accounts: pick(state.new.attendees, state.new.attendeesIDs),
 });
 
-export default connect(mapStateToProps, {
-  onAddClick: dispatch => dispatch(addAttendeeRequest(uuidv4())),
-  onRemoveClick: removeAttendeeRequest,
-})(NewEventAttendees);
+export const mapDispatchToProps = dispatch => ({
+  onAddClick: () => dispatch(addAttendeeRequest(uuidv4())),
+  // dispatch(addAttendeeRequest(uuidv4())),
+  onRemoveClick: id => dispatch(removeAttendeeRequest(id)),
+  onChangeAddress: props => dispatch(changeAttendeeAddress(props)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewEventAttendees);
