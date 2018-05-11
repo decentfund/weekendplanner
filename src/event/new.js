@@ -2,6 +2,7 @@ import omit from 'lodash/omit';
 
 const ADD_ATTENDEE_REQUEST = 'event/new/ADD_ATTENDEE_REQUEST';
 const REMOVE_ATTENDEE_REQUEST = 'event/new/REMOVE_ATTENDEE_REQUEST';
+const CHANGE_ATTENDEE_ADDRESS = 'event/new/CHANGE_ATTENDEE_ADDRESS';
 
 export const defaultState = {
   attendees: {
@@ -22,6 +23,11 @@ function attendees(state = defaultState.attendees, action = {}) {
   switch (action.type) {
     case ADD_ATTENDEE_REQUEST:
       return { ...state, [`${action.id}`]: getNewAttendee() };
+    case CHANGE_ATTENDEE_ADDRESS:
+      return {
+        ...state,
+        [`${action.id}`]: { address: action.address },
+      };
     case REMOVE_ATTENDEE_REQUEST:
       return omit(state, action.id);
     default:
@@ -44,6 +50,11 @@ export default function reducer(state = defaultState, action = {}) {
         attendeesIDs: state.attendeesIDs.filter(id => id !== action.id),
         attendees: attendees(state.attendees, action),
       };
+    case CHANGE_ATTENDEE_ADDRESS:
+      return {
+        ...state,
+        attendees: attendees(state.attendees, action),
+      };
     default:
       return state;
   }
@@ -61,5 +72,13 @@ export function removeAttendeeRequest(id) {
   return {
     type: REMOVE_ATTENDEE_REQUEST,
     id,
+  };
+}
+
+export function changeAttendeeAddress({ id, value }) {
+  return {
+    type: CHANGE_ATTENDEE_ADDRESS,
+    id,
+    address: value,
   };
 }

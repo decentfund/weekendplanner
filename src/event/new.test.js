@@ -1,4 +1,9 @@
-import state, { addAttendeeRequest, removeAttendeeRequest } from './new';
+import state, {
+  defaultState,
+  addAttendeeRequest,
+  removeAttendeeRequest,
+  changeAttendeeAddress,
+} from './new';
 
 it('sets default state properly', () => {
   const initialState = state();
@@ -33,5 +38,30 @@ it('removes attendee', () => {
   expect(removedAttendeeState).toEqual({
     attendees: { default: { address: '' } },
     attendeesIDs: ['default'],
+  });
+});
+it('handles address change', () => {
+  const attendeeId = '0001-0002-0003';
+  const initialState = state({
+    ...defaultState,
+    attendees: {
+      ...defaultState.attendees,
+      [`${attendeeId}`]: '0x3333',
+    },
+    attendeesIDs: [...defaultState.attendeesIDs, attendeeId],
+  });
+
+  // changing attendee address
+  const changedAddressState = state(
+    initialState,
+    changeAttendeeAddress({ id: attendeeId, value: '0x33331' }),
+  );
+
+  expect(changedAddressState).toEqual({
+    attendees: {
+      default: { address: '' },
+      [`${attendeeId}`]: { address: '0x33331' },
+    },
+    attendeesIDs: ['default', attendeeId],
   });
 });
