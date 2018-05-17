@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Blockies from 'react-blockies';
 import validAddress from '../util/validAddress';
 
-export const clipper = (address) => {
+export const clipper = address => {
   if (!validAddress(address)) return 'Invalid address';
   const arr = address.split('');
   const first = arr.slice(0, 4).join('');
