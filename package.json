@@ -57,6 +57,7 @@
     "zeppelin-solidity": "^1.6.0"
   },
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "drizzle": "1.1.0",
     "drizzle-react": "1.1.0",
     "drizzle-react-components": "1.1.0",
