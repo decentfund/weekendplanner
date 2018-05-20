@@ -41,7 +41,7 @@ const StatusComponent = ({
     />
     <div>{clipper(address)}</div>
     <div>{vote}</div>
-    <div>{owner}</div>
+    {owner ? <div>It&apos;s you</div> : null}
   </div>
 );
 =======
@@ -70,7 +70,7 @@ StatusComponent.propTypes = {
   spotColor: PropTypes.string,
 };
 
-const mapStateToProps = (state, ownProps) => ({
+export const mapStateToProps = (state, ownProps) => ({
   owner: state.accounts[0] === ownProps.address,
   // vote:
 });
