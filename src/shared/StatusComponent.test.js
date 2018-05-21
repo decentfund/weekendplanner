@@ -31,17 +31,23 @@ const stateDifferentAccount = {
 };
 
 it('sets props from mapStateToProps correctly if accounts is empty', () => {
-  const resultProps = mapStateToProps(stateNoMetamask, { address: currentAccount });
+  const resultProps = mapStateToProps(stateNoMetamask, {
+    address: currentAccount,
+  });
   expect(resultProps.owner).toEqual(false);
 });
 
 it('sets props from mapStateToProps correctly if current account is owner', () => {
-  const resultProps = mapStateToProps(stateCurrentAccount, { address: currentAccount });
+  const resultProps = mapStateToProps(stateCurrentAccount, {
+    address: currentAccount,
+  });
   expect(resultProps.owner).toEqual(true);
 });
 
 it('sets props from mapStateToProps correctly if current account is not owner', () => {
-  const resultProps = mapStateToProps(stateDifferentAccount, { address: currentAccount });
+  const resultProps = mapStateToProps(stateDifferentAccount, {
+    address: currentAccount,
+  });
   expect(resultProps.owner).toEqual(false);
 });
 
