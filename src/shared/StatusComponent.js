@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Blockies from 'react-blockies';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
+import { getUserOptionVote } from '../event/event';
 import validAddress from '../util/validAddress';
 
 export const clipper = (address) => {
@@ -12,9 +13,6 @@ export const clipper = (address) => {
   const last = arr.slice(arr.length - 4).join('');
   return `${first}...${last}`;
 };
-
-// const { seed, size, scale, color } = props;
-// const { seed, ...otherProps } = props;
 
 const StatusComponent = ({
   seed,
@@ -37,7 +35,7 @@ const StatusComponent = ({
       spotColor={spotColor}
     />
     <div>{clipper(address)}</div>
-    <div>{vote}</div>
+    <div>{vote || 'no vote'}</div>
     {owner ? <div>It&apos;s you</div> : null}
   </div>
 );
@@ -45,6 +43,7 @@ const StatusComponent = ({
 StatusComponent.defaultProps = {
   vote: null,
   owner: true,
+  optionId: undefined,
   seed: 'weekendplanner',
   size: 10,
   scale: 3,
@@ -57,6 +56,7 @@ StatusComponent.propTypes = {
   address: PropTypes.string.isRequired,
   vote: PropTypes.string,
   owner: PropTypes.string,
+  optionId: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
   seed: PropTypes.string,
   size: PropTypes.number,
   scale: PropTypes.number,
@@ -67,9 +67,8 @@ StatusComponent.propTypes = {
 
 export const mapStateToProps = (state, ownProps) => ({
   owner: state.accounts[0] === ownProps.address,
-  // vote:
+  vote: getUserOptionVote(state, ownProps.address, ownProps.optionId).status,
 });
 
 export { StatusComponent };
-// import { StatusComponent }
-// export default connect(mapStateToProps)(StatusComponent)
+export default connect(mapStateToProps)(StatusComponent);
