@@ -17,18 +17,21 @@ describe('Clipper', () => {
 
 const stateNoMetamask = {
   accounts: {},
+  movies: {},
 };
 
 const stateCurrentAccount = {
   accounts: {
     0: currentAccount,
   },
+  movies: {},
 };
 
 const stateDifferentAccount = {
   accounts: {
     0: '0xaaaaaa',
   },
+  movies: {},
 };
 
 describe('Map to state owner', () => {
@@ -65,5 +68,15 @@ describe('<StatusComponent />', () => {
   it('does render owner div for the current user', () => {
     const component = shallow(setupComponent({ owner: true }));
     expect(component.contains("It's you")).toEqual(true);
+  });
+
+  it('does render vote if vote exist', () => {
+    const component = shallow(setupComponent({ vote: 'yes' }));
+    expect(component.contains('yes')).toEqual(true);
+  });
+
+  it('does render  no vote if vote is undefined', () => {
+    const component = shallow(setupComponent({ vote: undefined }));
+    expect(component.contains('no vote')).toEqual(true);
   });
 });
