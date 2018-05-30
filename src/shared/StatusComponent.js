@@ -65,10 +65,7 @@ StatusComponent.propTypes = {
   spotColor: PropTypes.string,
 };
 
-export const mapStateToProps = (state, ownProps) => ({
-  owner: state.accounts[0] === ownProps.address,
-  vote: getUserOptionVote(state, ownProps.address, ownProps.optionId).status,
-});
+export const mapStateToProps = (state, ownProps) => ({ owner: state.accounts[0] === ownProps.address, vote: getUserOptionVote(state, ownProps.address, ownProps.optionId).status });
 
 export { StatusComponent };
 export default connect(mapStateToProps)(StatusComponent);
